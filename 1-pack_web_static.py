@@ -10,11 +10,14 @@ def do_pack():
     """
     Generates a .tgz archive from the contents of the web_static folder
     """
-
-    form = "%Y%m%d%H%M%S"
-    date = datetime.now().strftime(form)
-    file_name = "versions/web_static_{}.tgz".format(date)
-    if os.path.isdir("versions") is False:
-        local("mkdir versions")
-    local("tar -cvzf {} web_static".format(file_name))
-    return file_name
+    try:
+        form = "%Y%m%d%H%M%S"
+        date = datetime.now().strftime(form)
+        file_name = "versions/web_static_{}.tgz".format(date)
+        if os.path.isdir("versions") is False:
+            local("mkdir versions")
+        local("tar -cvzf {} web_static".format(file_name))
+    except:
+        None
+    else: 
+        return file_name
