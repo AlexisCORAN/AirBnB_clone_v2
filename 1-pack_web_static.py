@@ -18,6 +18,6 @@ def do_pack():
             local("mkdir versions")
         local("tar -cvzf {} web_static".format(file_name))
     except:
-        None
+        return None
     else: 
         return file_name
