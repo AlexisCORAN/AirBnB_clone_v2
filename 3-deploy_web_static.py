@@ -8,7 +8,6 @@ from datetime import datetime
 env.hosts = ["35.229.24.103", "54.226.193.179"]
 
 
-
 def do_pack():
     """
     Generates a .tgz archive from the contents of the web_static folder
@@ -24,6 +23,7 @@ def do_pack():
         return None
     else:
         return file_name
+
 
 def do_deploy(archive_path):
     """
@@ -50,6 +50,7 @@ def do_deploy(archive_path):
         return False
     else:
         return True
+
 
 def deploy():
     """
