@@ -8,6 +8,10 @@ env.hosts = ["35.229.24.103", "54.226.193.179"]
 
 
 def do_deploy(archive_path):
+    """
+    do_deploy function
+    """
+
     if os.path.isfile(archive_path) is False:
         return False
 
@@ -20,7 +24,7 @@ def do_deploy(archive_path):
         run("tar -xzf /tmp/{} -C {}{}".format(file_n, path, name))
         run("rm /tmp/{}".format(file_n))
         run("mv /data/web_static/releases/{}/web_static/* "
-           "/data/web_static/releases/{}/".format(name, name))
+            "/data/web_static/releases/{}/".format(name, name))
         run("rm -rf {}{}/web_static".format(path, name))
         run("rm -rf /data/web_static/current")
         run("ln -s {}{}/ /data/web_static/current".format(path, name))
