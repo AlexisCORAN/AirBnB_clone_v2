@@ -27,4 +27,4 @@ class State(BaseModel, Base):
             for value in dict.values():
                 if self.id == value.state_id:
                     new_dict.append(value)
-            return new_dict
+            return (new_dict)
